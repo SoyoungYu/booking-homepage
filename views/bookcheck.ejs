@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMEPAGE</title>
+    <link rel="stylesheet" href="../public/css/bookcheck.css">
+</head>
+<body>
+    <div class="wrap">
+        <p class="notice">※ 제일 최근 예약 4개가 나타납니다.</p>
+        <button type="button" id="go-booking-btn" onclick="location.href='/booking'">← 예약하러가기</button>
+        <div class="booking-list">
+            <table>
+                <th>날짜</th>
+                <th>시간</th>
+                <th>예약자</th>
+                <% data.forEach(books => { %>
+                    <tr>
+                        <td><%= books.date %></td>
+                        <td><%= books.time %></td>
+                        <td><%= books.username.replace(/(?<=.{2})./gi, "*") %>( <%= books.tel.substring(9, 13) %> )</td>
+                    </tr>
+                <% }); %>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

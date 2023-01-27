@@ -1,0 +1,31 @@
+.wrap{
+    width: 100%;
+    text-align: center;
+}
+
+.notice{
+    font-size: 12px;
+}
+
+#go-booking-btn{
+    margin: 0 auto;
+    border: 0 solid black;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+#go-booking-btn:hover{
+    color: pink;
+}
+#go-booking-btn:active{
+    color: palevioletred;
+}
+
+.booking-list table{
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+.booking-list table td{
+    padding: 10px;
+}

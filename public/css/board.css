@@ -1,0 +1,82 @@
+.wrap{
+    width: 100%;
+    text-align: center;
+}
+
+#content-form{
+    display: inline-block;
+    padding-bottom: 50px;
+}
+
+#content-area{
+    width: 400px; height: 60px;
+    resize: none;
+    float: left;
+    margin-right: 8px;
+    padding: 3px;
+    border: 1px dashed rgb(171, 195, 255);
+}
+#content-area:focus{
+    outline: none;
+}
+
+#content-btn{
+    width: 90px; height: 70px;
+    border-radius: 5px;
+    border: 0px;
+    background-color: pink;
+    cursor: pointer;
+}
+
+.content-list{
+    margin: 0 auto;
+    width: 490px;
+    background-color: rgba(255, 226, 231, 0.7);
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: left;
+    position: relative;
+}
+
+.writer{
+    font-size: 16px;
+    font-weight: bold;
+}
+.date{
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+.item-content{
+    margin-bottom: 10px;
+    white-space: pre-line;
+}
+
+.list-btn{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+
+.list-btn>button{
+    padding: 3px;
+    background-color: rgb(223, 232, 255);
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+#update-btn,
+#remove-btn,
+#update-complete-btn,
+#cancel-btn{
+    cursor: pointer;
+}
+
+/* update form css */
+#edit-box{
+    width: 380px; min-height: 60px;
+    resize: none;
+    padding: 3px;
+    border: 1px dashed rgb(171, 195, 255);
+    background-color: rgb(255, 255, 255, 0.8);
+}

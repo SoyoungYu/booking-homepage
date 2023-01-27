@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMEPAGE</title>
+    <link rel="stylesheet" href="../public/css/board.css">
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <form id="content-form" action="/board/write" method="post">
+            <textarea id="content-area" name="content" placeholder="Have a good day" autocomplete="off" ></textarea>
+            <button id="content-btn" type="submit">작성하기</button>
+        </form>
+        <br>
+        <%
+            var date = "";
+            var next_date = "";
+            data.forEach(tasks => {
+                date = (tasks.date).substring(0, 10);
+        %>
+            <ul class="content-list">
+                <li class="writer"><%= tasks.username %></li>
+                <li>
+                    <div class="date"><%=date%></div>
+                </li>
+                <hr>
+                <div class="item-edit">
+                    <li>
+                        <div class="item-content" id="content">
+                            <%=tasks.content%>
+                        </div>
+                    </li>
+                    <% if (username == tasks.username) { %>
+                    <li>
+                        <div class="list-btn">
+                            <button id="update-btn" value="<%= tasks._id %>" type="button" >수정</button>
+                            <button type="button"
+                            id="remove-btn" onclick="location.href='/board/remove/<%=tasks._id%>'">삭제</button>
+                        </div>
+                    </li>
+                </div>
+                <% } %>
+            </ul>
+        <% }); %>
+    </div>
+</body>
+<script>
+    $(document).on("click", "#update-btn", function(e){     // 수정하기 버튼
+        ids = $(this).val();
+        
+        $.ajax({
+            url: '/board/edit/'+ids,
+            dataType: 'json',
+            type: 'GET',
+            data: {
+                id: $("#update-btn").val(),
+            },
+            success: function(result) {
+                var updatebtn = e.target.parentElement.parentElement.parentElement.parentElement;
+                var textcontent = updatebtn.children[3].children[0].textContent.trim();
+
+                if (result) {
+                    updatebtn.children[3].innerHTML=`
+                        <form action="/board/update/${ids}" method="post">
+                            <textarea name="content" id="edit-box" autocomplete="off">${textcontent}</textarea>
+                            <button id="update-complete-btn" value="${ids}" type="submit">완료</button>
+                            <button id="cancel-btn" type="button">취소</button>
+                        </form>
+                    `;
+                }
+            }
+        })
+    })
+
+    $(document).on("click", "#update-complete-btn", function(e){    // 수정 완료 버튼
+        ids = $(this).val();
+
+        $.ajax({
+            url: '/board/update/'+ids,
+            dataType: 'json',
+            type: 'POST',
+            data: {
+                content: e.target.parentElement.children[0].textContent.trim(),
+            },
+            success: function(result){
+                if (result){
+                    alert("글이 정상적으로 수정되었습니다.");
+                }
+            }
+        })
+    })
+
+    $(document).on("click", "#cancel-btn", function(e){     // 수정 취소 버튼
+        $.ajax({
+            url: '/board',
+            success: function(result) {
+                var updatebtn = e.target.parentElement;
+                var textcontent = updatebtn.children[0].textContent.trim();
+
+                if (result) {
+                    updatebtn.parentElement.innerHTML=`
+                        <li>
+                            <div class="item-content" id="content">
+                                ${textcontent}
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-btn">
+                                <button id="update-btn" value="${result._id}" type="button">수정</button>
+                                <button type="button" onclick="location.href='/board/remove/${result._id}'">삭제</button>
+                            </div>
+                        </li>
+                    `;
+                }
+            }
+        })
+    })
+</script>
+</html>

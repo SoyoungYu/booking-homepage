@@ -1,0 +1,91 @@
+.wrap{
+    width: 100%;
+    text-align: center;
+}
+
+.booking{
+    display: grid;
+    align-items: center;
+    width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    padding-bottom: 40px;
+}
+
+.notice{
+    font-size: 12px;
+}
+
+#booking-check-btn{
+    margin: 0 auto;
+    border: 0 solid black;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+#booking-check-btn:hover{
+    color: pink;
+}
+#booking-check-btn:active{
+    color: palevioletred;
+}
+
+.form{
+    margin: 25px 0px 25px 0px;
+}
+#type{
+    width: 100%; height: 30px;
+    border: 0px solid black;
+    border-bottom: 2px solid rgb(171, 195, 255);
+    text-align: center;
+}
+#date{
+    width: 100%; height: 30px;
+    border: 0px solid black;
+    border-bottom: 2px solid rgb(171, 195, 255);
+    text-align: center;
+}
+#time{
+    width: 100%; height: 30px;
+    border: 0px solid black;
+    border-bottom: 2px solid rgb(171, 195, 255);
+    text-align: center;
+}
+#username{
+    width: 98%; height: 22px;
+    padding: 3px;
+    border: 0px solid black;
+    border-bottom: 2px solid rgb(171, 195, 255);
+    text-align: center;
+}
+#tel{
+    width: 98%; height: 22px;
+    padding: 3px;
+    border: 0px solid black;
+    border-bottom: 2px solid rgb(171, 195, 255);
+    text-align: center;
+}
+#comment{
+    width: 98%; height: 22px;
+    padding: 3px;
+    border: 1px dashed rgb(171, 195, 255);
+    text-align: center;
+}
+#type:focus, #date:focus, #time:focus, #username:focus, #tel:focus, #comment:focus{
+    outline: none;
+}
+
+label{
+    font-size: 13px;
+    font-weight: bold;
+    float: left;
+}
+
+.booking-btn-type>button{
+    width: 80%; height: 40px;
+    border: 0 solid black;
+    background-color: pink;
+    border-radius: 25px;
+    cursor: pointer;
+}

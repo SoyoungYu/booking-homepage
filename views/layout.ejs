@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMEPAGE</title>
+    <link rel="stylesheet" href="../public/css/layout.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <h1 class="logo" onclick="location.href='/'">LOGO</h1>
+            <ul class="main-menu">
+                <li onclick="location.href='/intro'">소개</li>
+                <li onclick="location.href='/menu'">메뉴</li>
+                <li onclick="location.href='/booking'">예약하기</li>
+                <li onclick="location.href='/board'">후기</li>
+            </ul>
+            <ul class="global-menu">
+                <% 
+                    var isLogin = JSON.stringify(isLogin);
+                    console.log(isLogin);
+    
+                    if (isLogin == "true") {  
+                %>
+                    <li><%= username %>님</li>
+                    <li onclick="location.href='/logout'">로그아웃</li>
+                <% } else { %>
+                    <li onclick="location.href='/signin'">로그인</li>
+                    <li onclick="location.href='/signup'">회원가입</li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="contents">
+            <%- body %>
+        </div>
+        <div class="footer">
+            Copyright © 2023 Soyoung Inc. All rights reserved.
+        </div>
+    </div>
+</body>
+<script>
+    useEffect(()=>{
+        dispatch({
+            type: LOAD_USER_REQUEST,
+        });
+    }, []);
+</script>
+</html>
