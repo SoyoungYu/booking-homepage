@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 
-const { loginCheck, boardCheck } = require('../middleware/loginCheck');
+const { loginCheck, introLoginCheck, menuLoginCheck, boardCheck } = require('../middleware/loginCheck');
 
 const SignInRouter = require('./signin');
 const SignUpRouter = require('./signup');
@@ -14,11 +14,11 @@ const controller = require("../controllers/user");
 router.get('/', loginCheck, function(req, res) {
     res.render('main', { userid: req.session.user.userid, username: req.session.user.username, isLogin: true });
 });
-router.get('/intro', function(req, res) {
-    res.render('intro');
+router.get('/intro', introLoginCheck, function(req, res) {
+    res.render('intro', { userid: req.session.user.userid, username: req.session.user.username, isLogin: true });
 })
-router.get('/menu', function(req, res) {
-    res.render('menu');
+router.get('/menu', menuLoginCheck, function(req, res) {
+    res.render('menu', { userid: req.session.user.userid, username: req.session.user.username, isLogin: true });
 });
 router.use('/board', boardCheck, BoardRouter);
 router.use('/booking', BookingRouter);

@@ -9,6 +9,22 @@ function loginCheck(req, res, next) {
     }
 }
 
+function introLoginCheck(req, res, next) {
+    if (req.session.user) {
+        next();
+    } else {
+        res.render("intro", { isLogin: false });
+    }
+}
+
+function menuLoginCheck(req, res, next) {
+    if (req.session.user) {
+        next();
+    } else {
+        res.render("menu", { isLogin: false });
+    }
+}
+
 function boardCheck(req, res, next) {
     if (req.session.user) {
         next();
@@ -27,4 +43,4 @@ function bookingCheck(req, res, next) {
     }
 }
 
-module.exports = { loginCheck, boardCheck, bookingCheck }
+module.exports = { loginCheck, introLoginCheck, menuLoginCheck, boardCheck, bookingCheck }

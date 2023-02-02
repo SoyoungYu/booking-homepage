@@ -14,7 +14,7 @@
     float: left;
     margin-right: 8px;
     padding: 3px;
-    border: 1px dashed rgb(171, 195, 255);
+    border: 1px dashed #A8798B;
 }
 #content-area:focus{
     outline: none;
@@ -32,16 +32,27 @@
     margin: 0 auto;
     width: 490px;
     background-color: rgba(255, 226, 231, 0.7);
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     padding: 10px;
     border-radius: 15px;
     text-align: left;
     position: relative;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 .writer{
     font-size: 16px;
     font-weight: bold;
+    font-family: 'Jua', sans-serif;
 }
 .date{
     font-size: 12px;
@@ -59,10 +70,12 @@
 }
 
 .list-btn>button{
+    width: 35px; height: 35px;
     padding: 3px;
-    background-color: rgb(223, 232, 255);
-    border: 1px solid gray;
-    border-radius: 5px;
+    background-color: #A8798B;
+    border: 0px solid gray;
+    color: #fff;
+    border-radius: 20px;
 }
 
 #update-btn,
@@ -77,6 +90,6 @@
     width: 380px; min-height: 60px;
     resize: none;
     padding: 3px;
-    border: 1px dashed rgb(171, 195, 255);
+    border: 1px dashed #A8798B;
     background-color: rgb(255, 255, 255, 0.8);
 }

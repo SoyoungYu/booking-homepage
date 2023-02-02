@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOMEPAGE</title>
     <link rel="stylesheet" href="../public/css/layout.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrap">
         <div class="header">
-            <h1 class="logo" onclick="location.href='/'">LOGO</h1>
+            <h1 class="logo" onclick="location.href='/'">영네일</h1>
             <ul class="main-menu">
                 <li onclick="location.href='/intro'">소개</li>
                 <li onclick="location.href='/menu'">메뉴</li>
@@ -32,11 +35,13 @@
                 <% } %>
             </ul>
         </div>
-        <div class="contents">
-            <%- body %>
-        </div>
-        <div class="footer">
-            Copyright © 2023 Soyoung Inc. All rights reserved.
+        <div class="contents-wrap">
+            <div class="contents">
+                <%- body %>
+            </div>
+            <div class="footer">
+                Copyright © 2023 Soyoung Inc. All rights reserved.
+            </div>
         </div>
     </div>
 </body>

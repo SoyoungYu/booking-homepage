@@ -3,6 +3,11 @@
     text-align: center;
 }
 
+h2{
+    font-family: 'Jua', sans-serif;
+    font-size: 30px;
+}
+
 .all-price{
     width: 800px;
     margin: 0 auto;

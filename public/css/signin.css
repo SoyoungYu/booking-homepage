@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+h2{
+    font-family: 'Jua', sans-serif;
+}
+
 .login{
     display: grid;
     align-items: center;
@@ -22,7 +26,8 @@
     margin-bottom: 6px;
     border-radius: 10px 10px 0px 0px;
     border: 0 solid rgb(223, 232, 255);
-    border-bottom: 2px solid rgb(171, 195, 255);
+    border-bottom: 2px solid #A8798B;
+    border-width: 50%;
     padding: 8px;
 }
 #login-form>input:focus{
